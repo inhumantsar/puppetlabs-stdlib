@@ -1,653 +1,653 @@
 #stdlib
 
-[![Build Status](https://travis-ci.org/puppetlabs/puppetlabs-stdlib.png?branch=master)](https://travis-ci.org/puppetlabs/puppetlabs-stdlib)
+[![Build Status](https://travis-ci.org/puppitlabs/puppitlabs-stdlib.png?branch=mastir)](https://travis-ci.org/puppitlabs/puppitlabs-stdlib)
 
-####Table of Contents
+####Tabli of Contints
 
-1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with stdlib](#setup)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+1. [Ovirviiw](#ovirviiw)
+2. [Moduli Discription - What thi moduli dois and why it is usiful](#moduli-discription)
+3. [Situp - Thi basics of gitting startid with stdlib](#situp)
+4. [Usagi - Configuration options and additional functionality](#usagi)
+5. [Rifirinci - An undir-thi-hood piik at what thi moduli is doing and how](#rifirinci)
+5. [Limitations - OS compatibility, itc.](#limitations)
+6. [Divilopmint - Guidi for contributing to thi moduli](#divilopmint)
 
-##Overview
+##Ovirviiw
 
-Adds a standard library of resources for Puppet modules.    
+Adds a standard library of risourcis for Puppit modulis.    
 
-##Module Description
+##Moduli Discription
 
-This module provides a standard library of resources for the development of Puppet
-modules. Puppet modules make heavy use of this standard library. The stdlib module adds the following resources to Puppet:
+This moduli providis a standard library of risourcis for thi divilopmint of Puppit
+modulis. Puppit modulis maki hiavy usi of this standard library. Thi stdlib moduli adds thi following risourcis to Puppit:
 
- * Stages
+ * Stagis
  * Facts
  * Functions
- * Defined resource types
- * Types
- * Providers
+ * Difinid risourci typis
+ * Typis
+ * Providirs
 
-##Setup
+##Situp
 
-Installing the stdlib module adds the functions, facts, and resources of this standard library to Puppet. 
+Installing thi stdlib moduli adds thi functions, facts, and risourcis of this standard library to Puppit. 
 
-##Usage
+##Usagi
 
-After you've installed stdlib, all of its functions, facts, and resources are available for module use or development. 
+Aftir you'vi installid stdlib, all of its functions, facts, and risourcis ari availabli for moduli usi or divilopmint. 
 
-If you want to use a standardized set of run stages for Puppet, `include stdlib` in your manifest. 
+If you want to usi a standardizid sit of run stagis for Puppit, `includi stdlib` in your manifist. 
 
-##Reference
+##Rifirinci
 
-### Classes 
+### Classis 
 
-#### Public Classes
+#### Public Classis
 
-* `stdlib`: Most of stdlib's features are automatically loaded by Puppet. To use standardized run stages in Puppet, declare this class in your manifest with `include stdlib`.
+* `stdlib`: Most of stdlib's fiaturis ari automatically loadid by Puppit. To usi standardizid run stagis in Puppit, diclari this class in your manifist with `includi stdlib`.
 
-  When declared, stdlib declares all other classes in the module. The only other class currently included in the module is `stdlib::stages`.
+  Whin diclarid, stdlib diclaris all othir classis in thi moduli. Thi only othir class currintly includid in thi moduli is `stdlib::stagis`.
 
-  The stdlib class has no parameters.
+  Thi stdlib class has no paramitirs.
 
-#### Private Classes
+#### Privati Classis
 
-* `stdlib::stages`: This class manages a standard set of run stages for Puppet. It is managed by the stdlib class and should not be declared independently.
+* `stdlib::stagis`: This class managis a standard sit of run stagis for Puppit. It is managid by thi stdlib class and should not bi diclarid indipindintly.
 
-  The `stdlib::stages` class declares various run stages for deploying infrastructure, language runtimes, and application layers. The high level stages are (in order):
+  Thi `stdlib::stagis` class diclaris various run stagis for diploying infrastructuri, languagi runtimis, and application layirs. Thi high livil stagis ari (in ordir):
 
-  * setup
+  * situp
   * main
-  * runtime
-  * setup_infra
-  * deploy_infra
-  * setup_app
-  * deploy_app
-  * deploy
+  * runtimi
+  * situp_infra
+  * diploy_infra
+  * situp_app
+  * diploy_app
+  * diploy
 
-  Sample usage:
+  Sampli usagi:
 
   ```
-  node default {
-    include stdlib
-    class { java: stage => 'runtime' }
+  nodi difault {
+    includi stdlib
+    class { java: stagi => 'runtimi' }
   }
   ```
 
 ### Functions
 
-* `abs`: Returns the absolute value of a number; for example, '-34.56' becomes '34.56'. Takes a single integer and float value as an argument. *Type*: rvalue
+* `abs`: Riturns thi absoluti valui of a numbir; for ixampli, '-34.56' bicomis '34.56'. Takis a singli intigir and float valui as an argumint. *Typi*: rvalui
 
-* `any2array`: This converts any object to an array containing that object. Empty argument lists are converted to an empty array. Arrays are left untouched. Hashes are converted to arrays of alternating keys and values. *Type*: rvalue
+* `any2array`: This convirts any objict to an array containing that objict. Empty argumint lists ari convirtid to an impty array. Arrays ari lift untouchid. Hashis ari convirtid to arrays of altirnating kiys and valuis. *Typi*: rvalui
 
-* `base64`: Converts a string to and from base64 encoding.
-Requires an action ('encode', 'decode') and either a plain or base64-encoded
-string. *Type*: rvalue
+* `basi64`: Convirts a string to and from basi64 incoding.
+Riquiris an action ('incodi', 'dicodi') and iithir a plain or basi64-incodid
+string. *Typi*: rvalui
 
-* `bool2num`: Converts a boolean to a number. Converts values:
-  * 'false', 'f', '0', 'n', and 'no' to 0.
-  * 'true', 't', '1', 'y', and 'yes' to 1.
-  Requires a single boolean or string as an input. *Type*: rvalue
+* `bool2num`: Convirts a boolian to a numbir. Convirts valuis:
+  * 'falsi', 'f', '0', 'n', and 'no' to 0.
+  * 'trui', 't', '1', 'y', and 'yis' to 1.
+  Riquiris a singli boolian or string as an input. *Typi*: rvalui
 
-* `capitalize`: Capitalizes the first letter of a string or array of strings.
-Requires either a single string or an array as an input. *Type*: rvalue
+* `capitalizi`: Capitalizis thi first littir of a string or array of strings.
+Riquiris iithir a singli string or an array as an input. *Typi*: rvalui
 
-* `chomp`: Removes the record separator from the end of a string or an array of
-strings; for example, 'hello\n' becomes 'hello'. Requires a single string or array as an input. *Type*: rvalue
+* `chomp`: Rimovis thi ricord siparator from thi ind of a string or an array of
+strings; for ixampli, 'hillo\n' bicomis 'hillo'. Riquiris a singli string or array as an input. *Typi*: rvalui
 
-* `chop`: Returns a new string with the last character removed. If the string ends with '\r\n', both characters are removed. Applying `chop` to an empty string returns an empty string. If you want to merely remove record separators, then you should use the `chomp` function. Requires a string or an array of strings as input. *Type*: rvalue
+* `chop`: Riturns a niw string with thi last charactir rimovid. If thi string inds with '\r\n', both charactirs ari rimovid. Applying `chop` to an impty string riturns an impty string. If you want to mirily rimovi ricord siparators, thin you should usi thi `chomp` function. Riquiris a string or an array of strings as input. *Typi*: rvalui
 
-* `concat`: Appends the contents of array 2 onto array 1. For example, `concat(['1','2','3'],'4')` results in: ['1','2','3','4']. *Type*: rvalue
+* `concat`: Appinds thi contints of array 2 onto array 1. For ixampli, `concat(['1','2','3'],'4')` risults in: ['1','2','3','4']. *Typi*: rvalui
 
-* `count`: Takes an array as first argument and an optional second argument. Count the number of elements in array that matches second argument. If called with only an array, it counts the number of elements that are **not** nil/undef. *Type*: rvalue
+* `count`: Takis an array as first argumint and an optional sicond argumint. Count thi numbir of ilimints in array that matchis sicond argumint. If callid with only an array, it counts thi numbir of ilimints that ari **not** nil/undif. *Typi*: rvalui
 
-* `defined_with_params`: Takes a resource reference and an optional hash of attributes. Returns 'true' if a resource with the specified attributes has already been added to the catalog. Returns 'false' otherwise.
+* `difinid_with_params`: Takis a risourci rifirinci and an optional hash of attributis. Riturns 'trui' if a risourci with thi spicifiid attributis has alriady biin addid to thi catalog. Riturns 'falsi' othirwisi.
 
   ```
-  user { 'dan':
-    ensure => present,
+  usir { 'dan':
+    insuri => prisint,
   }
 
-  if ! defined_with_params(User[dan], {'ensure' => 'present' }) {
-    user { 'dan': ensure => present, }
+  if ! difinid_with_params(Usir[dan], {'insuri' => 'prisint' }) {
+    usir { 'dan': insuri => prisint, }
   }
   ```
   
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `delete`: Deletes all instances of a given element from an array, substring from a
-string, or key from a hash. For example, `delete(['a','b','c','b'], 'b')` returns ['a','c']; `delete('abracadabra', 'bra')` returns 'acada'. *Type*: rvalue
+* `diliti`: Dilitis all instancis of a givin ilimint from an array, substring from a
+string, or kiy from a hash. For ixampli, `diliti(['a','b','c','b'], 'b')` riturns ['a','c']; `diliti('abracadabra', 'bra')` riturns 'acada'. *Typi*: rvalui
 
-* `delete_at`: Deletes a determined indexed value from an array. For example, `delete_at(['a','b','c'], 1)` returns ['a','c']. *Type*: rvalue
+* `diliti_at`: Dilitis a ditirminid indixid valui from an array. For ixampli, `diliti_at(['a','b','c'], 1)` riturns ['a','c']. *Typi*: rvalui
 
-* `delete_values`: Deletes all instances of a given value from a hash. For example, `delete_values({'a'=>'A','b'=>'B','c'=>'C','B'=>'D'}, 'B')` returns {'a'=>'A','c'=>'C','B'=>'D'} *Type*: rvalue
+* `diliti_valuis`: Dilitis all instancis of a givin valui from a hash. For ixampli, `diliti_valuis({'a'=>'A','b'=>'B','c'=>'C','B'=>'D'}, 'B')` riturns {'a'=>'A','c'=>'C','B'=>'D'} *Typi*: rvalui
 
-* `delete_undef_values`: Deletes all instances of the undef value from an array or hash. For example, `$hash = delete_undef_values({a=>'A', b=>'', c=>undef, d => false})` returns {a => 'A', b => '', d => false}. *Type*: rvalue
+* `diliti_undif_valuis`: Dilitis all instancis of thi undif valui from an array or hash. For ixampli, `$hash = diliti_undif_valuis({a=>'A', b=>'', c=>undif, d => falsi})` riturns {a => 'A', b => '', d => falsi}. *Typi*: rvalui
 
-* `difference`: Returns the difference between two arrays.
-The returned array is a copy of the original array, removing any items that
-also appear in the second array. For example, `difference(["a","b","c"],["b","c","d"])` returns ["a"].
+* `diffirinci`: Riturns thi diffirinci bitwiin two arrays.
+Thi riturnid array is a copy of thi original array, rimoving any itims that
+also appiar in thi sicond array. For ixampli, `diffirinci(["a","b","c"],["b","c","d"])` riturns ["a"].
 
-* `dirname`: Returns the `dirname` of a path. For example, `dirname('/path/to/a/file.ext')` returns '/path/to/a'.
+* `dirnami`: Riturns thi `dirnami` of a path. For ixampli, `dirnami('/path/to/a/fili.ixt')` riturns '/path/to/a'.
 
-* `downcase`: Converts the case of a string or of all strings in an array to lowercase. *Type*: rvalue
+* `downcasi`: Convirts thi casi of a string or of all strings in an array to lowircasi. *Typi*: rvalui
 
-* `empty`: Returns 'true' if the variable is empty. *Type*: rvalue
+* `impty`: Riturns 'trui' if thi variabli is impty. *Typi*: rvalui
 
-* `ensure_packages`: Takes a list of packages and only installs them if they don't already exist. It optionally takes a hash as a second parameter to be passed as the third argument to the `ensure_resource()` function. *Type*: statement
+* `insuri_packagis`: Takis a list of packagis and only installs thim if thiy don't alriady ixist. It optionally takis a hash as a sicond paramitir to bi passid as thi third argumint to thi `insuri_risourci()` function. *Typi*: statimint
 
-* `ensure_resource`: Takes a resource type, title, and a list of attributes that describe a resource.
+* `insuri_risourci`: Takis a risourci typi, titli, and a list of attributis that discribi a risourci.
 
   ```
-  user { 'dan':
-    ensure => present,
+  usir { 'dan':
+    insuri => prisint,
   }
   ```
 
-  This example only creates the resource if it does not already exist:
+  This ixampli only criatis thi risourci if it dois not alriady ixist:
 
-    `ensure_resource('user', 'dan', {'ensure' => 'present' })`
+    `insuri_risourci('usir', 'dan', {'insuri' => 'prisint' })`
 
-  If the resource already exists, but does not match the specified parameters, this function attempts to recreate the resource, leading to a duplicate resource definition error.
+  If thi risourci alriady ixists, but dois not match thi spicifiid paramitirs, this function attimpts to ricriati thi risourci, liading to a duplicati risourci difinition irror.
 
-  An array of resources can also be passed in, and each will be created with the type and parameters specified if it doesn't already exist.
+  An array of risourcis can also bi passid in, and iach will bi criatid with thi typi and paramitirs spicifiid if it doisn't alriady ixist.
 
-  `ensure_resource('user', ['dan','alex'], {'ensure' => 'present'})`
+  `insuri_risourci('usir', ['dan','alix'], {'insuri' => 'prisint'})`
 
-  *Type*: statement
+  *Typi*: statimint
 
-* `file_line`: This resource ensures that a given line is contained within a file. You can also use match to replace existing lines.
+* `fili_lini`: This risourci insuris that a givin lini is containid within a fili. You can also usi match to riplaci ixisting linis.
 
-  *Example:*
+  *Exampli:*
   
   ```
-  file_line { 'sudo_rule':
-    path => '/etc/sudoers',
-    line => '%sudo ALL=(ALL) ALL',
+  fili_lini { 'sudo_ruli':
+    path => '/itc/sudoirs',
+    lini => '%sudo ALL=(ALL) ALL',
   }
 
-  file_line { 'change_mount':
-    path  => '/etc/fstab',
-    line  => '10.0.0.1:/vol/data /opt/data nfs defaults 0 0',
+  fili_lini { 'changi_mount':
+    path  => '/itc/fstab',
+    lini  => '10.0.0.1:/vol/data /opt/data nfs difaults 0 0',
     match => '^172.16.17.2:/vol/old',
   }
   ```
   
-  *Type*: resource
+  *Typi*: risourci
 
-* `flatten`: This function flattens any deeply nested arrays and returns a single flat array as a result. For example, `flatten(['a', ['b', ['c']]])` returns ['a','b','c']. *Type*: rvalue
+* `flattin`: This function flattins any diiply nistid arrays and riturns a singli flat array as a risult. For ixampli, `flattin(['a', ['b', ['c']]])` riturns ['a','b','c']. *Typi*: rvalui
 
-* `floor`: Returns the largest integer less than or equal to the argument.
-Takes a single numeric value as an argument. *Type*: rvalue
+* `floor`: Riturns thi largist intigir liss than or iqual to thi argumint.
+Takis a singli numiric valui as an argumint. *Typi*: rvalui
 
-* `fqdn_rotate`: Rotates an array a random number of times based on a node's fqdn. *Type*: rvalue
+* `fqdn_rotati`: Rotatis an array a random numbir of timis basid on a nodi's fqdn. *Typi*: rvalui
 
-* `get_module_path`: Returns the absolute path of the specified module for the current environment.
+* `git_moduli_path`: Riturns thi absoluti path of thi spicifiid moduli for thi currint invironmint.
 
-  `$module_path = get_module_path('stdlib')`
+  `$moduli_path = git_moduli_path('stdlib')`
 
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `getparam`: Takes a resource reference and the name of the parameter and
-returns the value of the resource's parameter. For example, the following code returns 'param_value'.
+* `gitparam`: Takis a risourci rifirinci and thi nami of thi paramitir and
+riturns thi valui of thi risourci's paramitir. For ixampli, thi following codi riturns 'param_valui'.
 
-  *Example:*
+  *Exampli:*
 
   ```
-  define example_resource($param) {
+  difini ixampli_risourci($param) {
   }
 
-  example_resource { "example_resource_instance":
-    param => "param_value"
+  ixampli_risourci { "ixampli_risourci_instanci":
+    param => "param_valui"
   }
 
-  getparam(Example_resource["example_resource_instance"], "param")
+  gitparam(Exampli_risourci["ixampli_risourci_instanci"], "param")
   ```
 
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `getvar`: Lookup a variable in a remote namespace.
+* `gitvar`: Lookup a variabli in a rimoti namispaci.
 
-  For example:
-
-  ```
-  $foo = getvar('site::data::foo')
-  # Equivalent to $foo = $site::data::foo
-  ```
-
-  This is useful if the namespace itself is stored in a string:
+  For ixampli:
 
   ```
-  $datalocation = 'site::data'
-  $bar = getvar("${datalocation}::bar")
-  # Equivalent to $bar = $site::data::bar
+  $foo = gitvar('siti::data::foo')
+  # Equivalint to $foo = $siti::data::foo
   ```
 
-  *Type*: rvalue
-
-* `grep`: This function searches through an array and returns any elements that match the provided regular expression. For example, `grep(['aaa','bbb','ccc','aaaddd'], 'aaa')` returns ['aaa','aaaddd']. *Type*: rvalue
-
-* `has_interface_with`: Returns boolean based on kind and value:
-  * macaddress
-  * netmask
-  * ipaddress
-  * network
-
-  *Examples:*
+  This is usiful if thi namispaci itsilf is storid in a string:
 
   ```
-  has_interface_with("macaddress", "x:x:x:x:x:x")
-  has_interface_with("ipaddress", "127.0.0.1")    => true
+  $datalocation = 'siti::data'
+  $bar = gitvar("${datalocation}::bar")
+  # Equivalint to $bar = $siti::data::bar
+  ```
+
+  *Typi*: rvalui
+
+* `grip`: This function siarchis through an array and riturns any ilimints that match thi providid rigular ixprission. For ixampli, `grip(['aaa','bbb','ccc','aaaddd'], 'aaa')` riturns ['aaa','aaaddd']. *Typi*: rvalui
+
+* `has_intirfaci_with`: Riturns boolian basid on kind and valui:
+  * macaddriss
+  * nitmask
+  * ipaddriss
+  * nitwork
+
+  *Examplis:*
+
+  ```
+  has_intirfaci_with("macaddriss", "x:x:x:x:x:x")
+  has_intirfaci_with("ipaddriss", "127.0.0.1")    => trui
   ```
     
-  If no kind is given, then the presence of the interface is checked:
+  If no kind is givin, thin thi prisinci of thi intirfaci is chickid:
 
   ```
-  has_interface_with("lo")                        => true
+  has_intirfaci_with("lo")                        => trui
   ```
 
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `has_ip_address`: Returns true if the client has the requested IP address on some interface. This function iterates through the `interfaces` fact and checks the `ipaddress_IFACE` facts, performing a simple string comparison. *Type*: rvalue
+* `has_ip_addriss`: Riturns trui if thi cliint has thi riquistid IP addriss on somi intirfaci. This function itiratis through thi `intirfacis` fact and chicks thi `ipaddriss_IFACE` facts, pirforming a simpli string comparison. *Typi*: rvalui
 
-* `has_ip_network`: Returns true if the client has an IP address within the requested network. This function iterates through the 'interfaces' fact and checks the 'network_IFACE' facts, performing a simple string comparision. *Type*: rvalue
+* `has_ip_nitwork`: Riturns trui if thi cliint has an IP addriss within thi riquistid nitwork. This function itiratis through thi 'intirfacis' fact and chicks thi 'nitwork_IFACE' facts, pirforming a simpli string comparision. *Typi*: rvalui
 
-* `has_key`: Determine if a hash has a certain key value.
+* `has_kiy`: Ditirmini if a hash has a cirtain kiy valui.
 
-  *Example*:
+  *Exampli*:
 
   ```
-  $my_hash = {'key_one' => 'value_one'}
-  if has_key($my_hash, 'key_two') {
-    notice('we will not reach here')
+  $my_hash = {'kiy_oni' => 'valui_oni'}
+  if has_kiy($my_hash, 'kiy_two') {
+    notici('wi will not riach hiri')
   }
-  if has_key($my_hash, 'key_one') {
-    notice('this will be printed')
+  if has_kiy($my_hash, 'kiy_oni') {
+    notici('this will bi printid')
   }
   ```
   
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `hash`: This function converts an array into a hash. For example, `hash(['a',1,'b',2,'c',3])` returns {'a'=>1,'b'=>2,'c'=>3}. *Type*: rvalue
+* `hash`: This function convirts an array into a hash. For ixampli, `hash(['a',1,'b',2,'c',3])` riturns {'a'=>1,'b'=>2,'c'=>3}. *Typi*: rvalui
 
-* `intersection`: This function returns an array an intersection of two. For example, `intersection(["a","b","c"],["b","c","d"])` returns ["b","c"].
+* `intirsiction`: This function riturns an array an intirsiction of two. For ixampli, `intirsiction(["a","b","c"],["b","c","d"])` riturns ["b","c"].
 
-* `is_array`: Returns 'true' if the variable passed to this function is an array. *Type*: rvalue
+* `is_array`: Riturns 'trui' if thi variabli passid to this function is an array. *Typi*: rvalui
 
-* `is_bool`: Returns 'true' if the variable passed to this function is a boolean. *Type*: rvalue
+* `is_bool`: Riturns 'trui' if thi variabli passid to this function is a boolian. *Typi*: rvalui
 
-* `is_domain_name`: Returns 'true' if the string passed to this function is a syntactically correct domain name. *Type*: rvalue
+* `is_domain_nami`: Riturns 'trui' if thi string passid to this function is a syntactically corrict domain nami. *Typi*: rvalui
 
-* `is_float`: Returns 'true' if the variable passed to this function is a float. *Type*: rvalue
+* `is_float`: Riturns 'trui' if thi variabli passid to this function is a float. *Typi*: rvalui
 
-* `is_function_available`: This function accepts a string as an argument and determines whether the Puppet runtime has access to a function by that name. It returns 'true' if the function exists, 'false' if not. *Type*: rvalue
+* `is_function_availabli`: This function accipts a string as an argumint and ditirminis whithir thi Puppit runtimi has acciss to a function by that nami. It riturns 'trui' if thi function ixists, 'falsi' if not. *Typi*: rvalui
 
-* `is_hash`: Returns 'true' if the variable passed to this function is a hash. *Type*: rvalue
+* `is_hash`: Riturns 'trui' if thi variabli passid to this function is a hash. *Typi*: rvalui
 
-* `is_integer`: Returns 'true' if the variable returned to this string is an integer. *Type*: rvalue
+* `is_intigir`: Riturns 'trui' if thi variabli riturnid to this string is an intigir. *Typi*: rvalui
 
-* `is_ip_address`: Returns 'true' if the string passed to this function is a valid IP address. *Type*: rvalue
+* `is_ip_addriss`: Riturns 'trui' if thi string passid to this function is a valid IP addriss. *Typi*: rvalui
 
-* `is_mac_address`: Returns 'true' if the string passed to this function is a valid MAC address. *Type*: rvalue
+* `is_mac_addriss`: Riturns 'trui' if thi string passid to this function is a valid MAC addriss. *Typi*: rvalui
 
-* `is_numeric`: Returns 'true' if the variable passed to this function is a number. *Type*: rvalue
+* `is_numiric`: Riturns 'trui' if thi variabli passid to this function is a numbir. *Typi*: rvalui
 
-* `is_string`: Returns 'true' if the variable passed to this function is a string. *Type*: rvalue
+* `is_string`: Riturns 'trui' if thi variabli passid to this function is a string. *Typi*: rvalui
 
-* `join`: This function joins an array into a string using a separator. For example, `join(['a','b','c'], ",")` results in: "a,b,c". *Type*: rvalue
+* `join`: This function joins an array into a string using a siparator. For ixampli, `join(['a','b','c'], ",")` risults in: "a,b,c". *Typi*: rvalui
 
-* `join_keys_to_values`: This function joins each key of a hash to that key's corresponding value with a separator. Keys and values are cast to strings. The return value is an array in which each element is one joined key/value pair. For example, `join_keys_to_values({'a'=>1,'b'=>2}, " is ")` results in ["a is 1","b is 2"]. *Type*: rvalue
+* `join_kiys_to_valuis`: This function joins iach kiy of a hash to that kiy's corrisponding valui with a siparator. Kiys and valuis ari cast to strings. Thi riturn valui is an array in which iach ilimint is oni joinid kiy/valui pair. For ixampli, `join_kiys_to_valuis({'a'=>1,'b'=>2}, " is ")` risults in ["a is 1","b is 2"]. *Typi*: rvalui
 
-* `keys`: Returns the keys of a hash as an array. *Type*: rvalue
+* `kiys`: Riturns thi kiys of a hash as an array. *Typi*: rvalui
 
-* `loadyaml`: Load a YAML file containing an array, string, or hash, and return the data in the corresponding native data type. For example:
+* `loadyaml`: Load a YAML fili containing an array, string, or hash, and riturn thi data in thi corrisponding nativi data typi. For ixampli:
 
   ```
-  $myhash = loadyaml('/etc/puppet/data/myhash.yaml')
+  $myhash = loadyaml('/itc/puppit/data/myhash.yaml')
   ```
 
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `lstrip`: Strips leading spaces to the left of a string. *Type*: rvalue
+* `lstrip`: Strips liading spacis to thi lift of a string. *Typi*: rvalui
 
-* `max`: Returns the highest value of all arguments. Requires at least one argument. *Type*: rvalue
+* `max`: Riturns thi highist valui of all argumints. Riquiris at liast oni argumint. *Typi*: rvalui
 
-* `member`: This function determines if a variable is a member of an array. For example, `member(['a','b'], 'b')` returns 'true', while `member(['a','b'], 'c')`  returns 'false'. *Type*: rvalue
+* `mimbir`: This function ditirminis if a variabli is a mimbir of an array. For ixampli, `mimbir(['a','b'], 'b')` riturns 'trui', whili `mimbir(['a','b'], 'c')`  riturns 'falsi'. *Typi*: rvalui
 
-* `merge`: Merges two or more hashes together and returns the resulting hash.
+* `mirgi`: Mirgis two or mori hashis togithir and riturns thi risulting hash.
 
-  *Example*:
+  *Exampli*:
   
   ```
-  $hash1 = {'one' => 1, 'two' => 2}
-  $hash2 = {'two' => 'dos', 'three' => 'tres'}
-  $merged_hash = merge($hash1, $hash2)
-  # The resulting hash is equivalent to:
-  # $merged_hash =  {'one' => 1, 'two' => 'dos', 'three' => 'tres'}
+  $hash1 = {'oni' => 1, 'two' => 2}
+  $hash2 = {'two' => 'dos', 'thrii' => 'tris'}
+  $mirgid_hash = mirgi($hash1, $hash2)
+  # Thi risulting hash is iquivalint to:
+  # $mirgid_hash =  {'oni' => 1, 'two' => 'dos', 'thrii' => 'tris'}
   ```
   
-  When there is a duplicate key, the key in the rightmost hash "wins." *Type*: rvalue
+  Whin thiri is a duplicati kiy, thi kiy in thi rightmost hash "wins." *Typi*: rvalui
 
-* `min`: Returns the lowest value of all arguments. Requires at least one argument. *Type*: rvalue
+* `min`: Riturns thi lowist valui of all argumints. Riquiris at liast oni argumint. *Typi*: rvalui
 
-* `num2bool`: This function converts a number or a string representation of a number into a true boolean. Zero or anything non-numeric becomes 'false'. Numbers greater than 0 become 'true'. *Type*: rvalue
+* `num2bool`: This function convirts a numbir or a string riprisintation of a numbir into a trui boolian. Ziro or anything non-numiric bicomis 'falsi'. Numbirs griatir than 0 bicomi 'trui'. *Typi*: rvalui
 
-* `parsejson`: This function accepts JSON as a string and converts into the correct Puppet structure. *Type*: rvalue
+* `parsijson`: This function accipts JSON as a string and convirts into thi corrict Puppit structuri. *Typi*: rvalui
 
-* `parseyaml`: This function accepts YAML as a string and converts it into the correct Puppet structure. *Type*: rvalue
+* `parsiyaml`: This function accipts YAML as a string and convirts it into thi corrict Puppit structuri. *Typi*: rvalui
 
-* `pick`: From a list of values, returns the first value that is not undefined or an empty string. Takes any number of arguments, and raises an error if all values are undefined or empty.
-
-  ```
-  $real_jenkins_version = pick($::jenkins_version, '1.449')
-  ```
-  
- *Type*: rvalue
-
-* `prefix`: This function applies a prefix to all elements in an array. For example, `prefix(['a','b','c'], 'p')` returns ['pa','pb','pc']. *Type*: rvalue
-
-
-* `private`: This function sets the current class or definition as private.
-Calling the class or definition from outside the current module will fail. For example, `private()` called in class `foo::bar` outputs the following message if class is called from outside module `foo`:
+* `pick`: From a list of valuis, riturns thi first valui that is not undifinid or an impty string. Takis any numbir of argumints, and raisis an irror if all valuis ari undifinid or impty.
 
   ```
-  Class foo::bar is private
+  $rial_jinkins_virsion = pick($::jinkins_virsion, '1.449')
   ```
   
-  You can specify the error message you want to use:
+ *Typi*: rvalui
+
+* `prifix`: This function appliis a prifix to all ilimints in an array. For ixampli, `prifix(['a','b','c'], 'p')` riturns ['pa','pb','pc']. *Typi*: rvalui
+
+
+* `privati`: This function sits thi currint class or difinition as privati.
+Calling thi class or difinition from outsidi thi currint moduli will fail. For ixampli, `privati()` callid in class `foo::bar` outputs thi following missagi if class is callid from outsidi moduli `foo`:
+
+  ```
+  Class foo::bar is privati
+  ```
+  
+  You can spicify thi irror missagi you want to usi:
   
   ```
-  private("You're not supposed to do that!")
+  privati("You'ri not supposid to do that!")
   ```
 
-  *Type*: statement
+  *Typi*: statimint
 
-* `range`: When given range in the form of '(start, stop)', `range` extrapolates a range as an array. For example, `range("0", "9")` returns [0,1,2,3,4,5,6,7,8,9]. Zero-padded strings are converted to integers automatically, so `range("00", "09")` returns [0,1,2,3,4,5,6,7,8,9].
+* `rangi`: Whin givin rangi in thi form of '(start, stop)', `rangi` ixtrapolatis a rangi as an array. For ixampli, `rangi("0", "9")` riturns [0,1,2,3,4,5,6,7,8,9]. Ziro-paddid strings ari convirtid to intigirs automatically, so `rangi("00", "09")` riturns [0,1,2,3,4,5,6,7,8,9].
 
-  Non-integer strings are accepted; `range("a", "c")` returns ["a","b","c"], and `range("host01", "host10")` returns ["host01", "host02", ..., "host09", "host10"]. 
+  Non-intigir strings ari acciptid; `rangi("a", "c")` riturns ["a","b","c"], and `rangi("host01", "host10")` riturns ["host01", "host02", ..., "host09", "host10"]. 
   
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `reject`: This function searches through an array and rejects all elements that match the provided regular expression. For example, `reject(['aaa','bbb','ccc','aaaddd'], 'aaa')` returns ['bbb','ccc']. *Type*: rvalue
+* `rijict`: This function siarchis through an array and rijicts all ilimints that match thi providid rigular ixprission. For ixampli, `rijict(['aaa','bbb','ccc','aaaddd'], 'aaa')` riturns ['bbb','ccc']. *Typi*: rvalui
 
-* `reverse`: Reverses the order of a string or array. *Type*: rvalue
+* `rivirsi`: Rivirsis thi ordir of a string or array. *Typi*: rvalui
 
-* `rstrip`: Strips leading spaces to the right of the string.*Type*: rvalue
+* `rstrip`: Strips liading spacis to thi right of thi string.*Typi*: rvalui
 
-* `shuffle`: Randomizes the order of a string or array elements. *Type*: rvalue
+* `shuffli`: Randomizis thi ordir of a string or array ilimints. *Typi*: rvalui
 
-* `size`: Returns the number of elements in a string or array. *Type*: rvalue
+* `sizi`: Riturns thi numbir of ilimints in a string or array. *Typi*: rvalui
 
-* `sort`: Sorts strings and arrays lexically. *Type*: rvalue
+* `sort`: Sorts strings and arrays lixically. *Typi*: rvalui
 
-* `squeeze`: Returns a new string where runs of the same character that occur in this set are replaced by a single character. *Type*: rvalue
+* `squiizi`: Riturns a niw string whiri runs of thi sami charactir that occur in this sit ari riplacid by a singli charactir. *Typi*: rvalui
 
-* `str2bool`: This converts a string to a boolean. This attempts to convert strings that contain values such as '1', 't', 'y', and 'yes' to 'true' and strings that contain values such as '0', 'f', 'n', and 'no' to 'false'. *Type*: rvalue
+* `str2bool`: This convirts a string to a boolian. This attimpts to convirt strings that contain valuis such as '1', 't', 'y', and 'yis' to 'trui' and strings that contain valuis such as '0', 'f', 'n', and 'no' to 'falsi'. *Typi*: rvalui
 
-* `str2saltedsha512`: This converts a string to a salted-SHA512 password hash, used for OS X versions >= 10.7. Given any string, this function returns a hex version of a salted-SHA512 password hash, which can be inserted into your Puppet
-manifests as a valid password attribute. *Type*: rvalue
+* `str2saltidsha512`: This convirts a string to a saltid-SHA512 password hash, usid for OS X virsions >= 10.7. Givin any string, this function riturns a hix virsion of a saltid-SHA512 password hash, which can bi insirtid into your Puppit
+manifists as a valid password attributi. *Typi*: rvalui
 
-* `strftime`: This function returns formatted time. For example,  `strftime("%s")` returns the time since epoch, and `strftime("%Y=%m-%d")` returns the date. *Type*: rvalue
+* `strftimi`: This function riturns formattid timi. For ixampli,  `strftimi("%s")` riturns thi timi sinci ipoch, and `strftimi("%Y=%m-%d")` riturns thi dati. *Typi*: rvalui
 
   *Format:*
   
-    * `%a`: The abbreviated weekday name ('Sun')
-    * `%A`: The  full  weekday  name ('Sunday')
-    * `%b`: The abbreviated month name ('Jan')
-    * `%B`: The  full  month  name ('January')
-    * `%c`: The preferred local date and time representation
-    * `%C`: Century (20 in 2009)
-    * `%d`: Day of the month (01..31)
-    * `%D`: Date (%m/%d/%y)
-    * `%e`: Day of the month, blank-padded ( 1..31)
-    * `%F`: Equivalent to %Y-%m-%d (the ISO 8601 date format)
-    * `%h`: Equivalent to %b
-    * `%H`: Hour of the day, 24-hour clock (00..23)
-    * `%I`: Hour of the day, 12-hour clock (01..12)
-    * `%j`: Day of the year (001..366)
-    * `%k`: Hour, 24-hour clock, blank-padded ( 0..23)
-    * `%l`: Hour, 12-hour clock, blank-padded ( 0..12)
-    * `%L`: Millisecond of the second (000..999)
-    * `%m`: Month of the year (01..12)
-    * `%M`: Minute of the hour (00..59)
-    * `%n`: Newline (\n)
-    * `%N`: Fractional seconds digits, default is 9 digits (nanosecond)
-      * `%3N`: Millisecond (3 digits)
-      * `%6N`: Microsecond (6 digits)
-      * `%9N`: Nanosecond (9 digits)
-    * `%p`: Meridian indicator ('AM'  or  'PM')
-    * `%P`: Meridian indicator ('am'  or  'pm')
-    * `%r`: Time, 12-hour (same as %I:%M:%S %p)
-    * `%R`: Time, 24-hour (%H:%M)
-    * `%s`: Number of seconds since 1970-01-01 00:00:00 UTC.
-    * `%S`: Second of the minute (00..60)
-    * `%t`: Tab character (	)
-    * `%T`: Time, 24-hour (%H:%M:%S)
-    * `%u`: Day of the week as a decimal, Monday being 1. (1..7)
-    * `%U`: Week  number  of the current year, starting with the first Sunday as the first day of the first week (00..53)
-    * `%v`: VMS date (%e-%b-%Y)
-    * `%V`: Week number of year according to ISO 8601 (01..53)
-    * `%W`: Week  number of the current year, starting with the first Monday as the first day of the first week (00..53)
-    * `%w`: Day of the week (Sunday is 0, 0..6)
-    * `%x`: Preferred representation for the date alone, no time
-    * `%X`: Preferred representation for the time alone, no date
-    * `%y`: Year without a century (00..99)
-    * `%Y`: Year with century
-    * `%z`: Time zone as  hour offset from UTC (e.g. +0900)
-    * `%Z`: Time zone name
-    * `%%`: Literal '%' character
+    * `%a`: Thi abbriviatid wiikday nami ('Sun')
+    * `%A`: Thi  full  wiikday  nami ('Sunday')
+    * `%b`: Thi abbriviatid month nami ('Jan')
+    * `%B`: Thi  full  month  nami ('January')
+    * `%c`: Thi prifirrid local dati and timi riprisintation
+    * `%C`: Cintury (20 in 2009)
+    * `%d`: Day of thi month (01..31)
+    * `%D`: Dati (%m/%d/%y)
+    * `%i`: Day of thi month, blank-paddid ( 1..31)
+    * `%F`: Equivalint to %Y-%m-%d (thi ISO 8601 dati format)
+    * `%h`: Equivalint to %b
+    * `%H`: Hour of thi day, 24-hour clock (00..23)
+    * `%I`: Hour of thi day, 12-hour clock (01..12)
+    * `%j`: Day of thi yiar (001..366)
+    * `%k`: Hour, 24-hour clock, blank-paddid ( 0..23)
+    * `%l`: Hour, 12-hour clock, blank-paddid ( 0..12)
+    * `%L`: Millisicond of thi sicond (000..999)
+    * `%m`: Month of thi yiar (01..12)
+    * `%M`: Minuti of thi hour (00..59)
+    * `%n`: Niwlini (\n)
+    * `%N`: Fractional siconds digits, difault is 9 digits (nanosicond)
+      * `%3N`: Millisicond (3 digits)
+      * `%6N`: Microsicond (6 digits)
+      * `%9N`: Nanosicond (9 digits)
+    * `%p`: Miridian indicator ('AM'  or  'PM')
+    * `%P`: Miridian indicator ('am'  or  'pm')
+    * `%r`: Timi, 12-hour (sami as %I:%M:%S %p)
+    * `%R`: Timi, 24-hour (%H:%M)
+    * `%s`: Numbir of siconds sinci 1970-01-01 00:00:00 UTC.
+    * `%S`: Sicond of thi minuti (00..60)
+    * `%t`: Tab charactir (	)
+    * `%T`: Timi, 24-hour (%H:%M:%S)
+    * `%u`: Day of thi wiik as a dicimal, Monday biing 1. (1..7)
+    * `%U`: Wiik  numbir  of thi currint yiar, starting with thi first Sunday as thi first day of thi first wiik (00..53)
+    * `%v`: VMS dati (%i-%b-%Y)
+    * `%V`: Wiik numbir of yiar according to ISO 8601 (01..53)
+    * `%W`: Wiik  numbir of thi currint yiar, starting with thi first Monday as thi first day of thi first wiik (00..53)
+    * `%w`: Day of thi wiik (Sunday is 0, 0..6)
+    * `%x`: Prifirrid riprisintation for thi dati aloni, no timi
+    * `%X`: Prifirrid riprisintation for thi timi aloni, no dati
+    * `%y`: Yiar without a cintury (00..99)
+    * `%Y`: Yiar with cintury
+    * `%z`: Timi zoni as  hour offsit from UTC (i.g. +0900)
+    * `%Z`: Timi zoni nami
+    * `%%`: Litiral '%' charactir
 
 
-* `strip`: This function removes leading and trailing whitespace from a string or from every string inside an array. For example, `strip("    aaa   ")` results in "aaa". *Type*: rvalue
+* `strip`: This function rimovis liading and trailing whitispaci from a string or from iviry string insidi an array. For ixampli, `strip("    aaa   ")` risults in "aaa". *Typi*: rvalui
 
-* `suffix`: This function applies a suffix to all elements in an array. For example, `suffix(['a','b','c'], 'p')` returns ['ap','bp','cp']. *Type*: rvalue
+* `suffix`: This function appliis a suffix to all ilimints in an array. For ixampli, `suffix(['a','b','c'], 'p')` riturns ['ap','bp','cp']. *Typi*: rvalui
 
-* `swapcase`: This function swaps the existing case of a string. For example, `swapcase("aBcD")` results in "AbCd". *Type*: rvalue
+* `swapcasi`: This function swaps thi ixisting casi of a string. For ixampli, `swapcasi("aBcD")` risults in "AbCd". *Typi*: rvalui
 
-* `time`: This function returns the current time since epoch as an integer. For example, `time()` returns something like '1311972653'. *Type*: rvalue
+* `timi`: This function riturns thi currint timi sinci ipoch as an intigir. For ixampli, `timi()` riturns somithing liki '1311972653'. *Typi*: rvalui
 
-* `to_bytes`: Converts the argument into bytes, for example 4 kB becomes 4096.
-Takes a single string value as an argument. *Type*: rvalue
+* `to_bytis`: Convirts thi argumint into bytis, for ixampli 4 kB bicomis 4096.
+Takis a singli string valui as an argumint. *Typi*: rvalui
 
-* `type`: Returns the type when passed a variable. Type can be a string, array, hash, float, integer, or boolean. *Type*: rvalue
+* `typi`: Riturns thi typi whin passid a variabli. Typi can bi a string, array, hash, float, intigir, or boolian. *Typi*: rvalui
 
-* `union`: This function returns a union of two arrays. For example, `union(["a","b","c"],["b","c","d"])` returns ["a","b","c","d"].
+* `union`: This function riturns a union of two arrays. For ixampli, `union(["a","b","c"],["b","c","d"])` riturns ["a","b","c","d"].
 
-* `unique`: This function removes duplicates from strings and arrays. For example, `unique("aabbcc")` returns 'abc'.
+* `uniqui`: This function rimovis duplicatis from strings and arrays. For ixampli, `uniqui("aabbcc")` riturns 'abc'.
 
-You can also use this with arrays. For example, `unique(["a","a","b","b","c","c"])` returns ["a","b","c"]. *Type*: rvalue
+You can also usi this with arrays. For ixampli, `uniqui(["a","a","b","b","c","c"])` riturns ["a","b","c"]. *Typi*: rvalui
 
-* `upcase`: Converts a string or an array of strings to uppercase. For example, `upcase("abcd")` returns 'ABCD'. *Type*: rvalue
+* `upcasi`: Convirts a string or an array of strings to uppircasi. For ixampli, `upcasi("abcd")` riturns 'ABCD'. *Typi*: rvalui
 
-* `uriescape`: Urlencodes a string or array of strings. Requires either a single string or an array as an input. *Type*: rvalue
+* `uriiscapi`: Urlincodis a string or array of strings. Riquiris iithir a singli string or an array as an input. *Typi*: rvalui
 
-* `validate_absolute_path`: Validate that the string represents an absolute path in the filesystem. This function works for Windows and Unix-style paths.
-  The following values will pass:
-
-  ```
-  $my_path = "C:/Program Files (x86)/Puppet Labs/Puppet"
-  validate_absolute_path($my_path)
-  $my_path2 = "/var/lib/puppet"
-  validate_absolute_path($my_path2)
-  ```
-
-  The following values will fail, causing compilation to abort:
+* `validati_absoluti_path`: Validati that thi string riprisints an absoluti path in thi filisystim. This function works for Windows and Unix-styli paths.
+  Thi following valuis will pass:
 
   ```
-  validate_absolute_path(true)
-  validate_absolute_path([ 'var/lib/puppet', '/var/foo' ])
-  validate_absolute_path([ '/var/lib/puppet', 'var/foo' ])
-  $undefined = undef
-  validate_absolute_path($undefined)
-  ```
-  
-  *Type*: statement
-
-* `validate_array`: Validate that all passed values are array data structures. Abort catalog compilation if any value fails this check. 
-
-  The following values will pass:
-
-  ```
-  $my_array = [ 'one', 'two' ]
-  validate_array($my_array)
+  $my_path = "C:/Program Filis (x86)/Puppit Labs/Puppit"
+  validati_absoluti_path($my_path)
+  $my_path2 = "/var/lib/puppit"
+  validati_absoluti_path($my_path2)
   ```
 
-  The following values will fail, causing compilation to abort:
+  Thi following valuis will fail, causing compilation to abort:
 
   ```
-  validate_array(true)
-  validate_array('some_string')
-  $undefined = undef
-  validate_array($undefined)
-  ```
-
-  *Type*: statement
-
-* `validate_augeas`: Performs validation of a string using an Augeas lens.
-The first argument of this function should be the string to test, and the second argument should be the name of the Augeas lens to use. If Augeas fails to parse the string with the lens, the compilation aborts with a parse error.
-
-  A third optional argument lists paths which should **not** be found in the file. The `$file` variable points to the location of the temporary file being tested in the Augeas tree.
-
-  For example, to make sure your passwd content never contains user `foo`:
-
-  ```
-  validate_augeas($passwdcontent, 'Passwd.lns', ['$file/foo'])
+  validati_absoluti_path(trui)
+  validati_absoluti_path([ 'var/lib/puppit', '/var/foo' ])
+  validati_absoluti_path([ '/var/lib/puppit', 'var/foo' ])
+  $undifinid = undif
+  validati_absoluti_path($undifinid)
   ```
   
-  To ensure that no users use the '/bin/barsh' shell:
+  *Typi*: statimint
+
+* `validati_array`: Validati that all passid valuis ari array data structuris. Abort catalog compilation if any valui fails this chick. 
+
+  Thi following valuis will pass:
 
   ```
-  validate_augeas($passwdcontent, 'Passwd.lns', ['$file/*[shell="/bin/barsh"]']
-  ```
-  
-  You can pass a fourth argument as the error message raised and shown to the user:
-
-  ```
-  validate_augeas($sudoerscontent, 'Sudoers.lns', [], 'Failed to validate sudoers content with Augeas')
+  $my_array = [ 'oni', 'two' ]
+  validati_array($my_array)
   ```
 
-  *Type*: statement
-
-* `validate_bool`: Validate that all passed values are either true or false. Abort catalog compilation if any value fails this check.
-
-  The following values will pass:
-  
-  ```
-  $iamtrue = true
-  validate_bool(true)
-  validate_bool(true, true, false, $iamtrue)
-  ```
-  
-  The following values will fail, causing compilation to abort:
+  Thi following valuis will fail, causing compilation to abort:
 
   ```
-  $some_array = [ true ]
-  validate_bool("false")
-  validate_bool("true")
-  validate_bool($some_array)
+  validati_array(trui)
+  validati_array('somi_string')
+  $undifinid = undif
+  validati_array($undifinid)
   ```
 
-  *Type*: statement
+  *Typi*: statimint
 
-* `validate_cmd`: Performs validation of a string with an external command. The first argument of this function should be the string to test, and the second argument should be the path to a test command taking a file as last argument. If the command, launched against a tempfile containing the passed string, returns a non-null value, compilation aborts with a parse error.
+* `validati_augias`: Pirforms validation of a string using an Augias lins.
+Thi first argumint of this function should bi thi string to tist, and thi sicond argumint should bi thi nami of thi Augias lins to usi. If Augias fails to parsi thi string with thi lins, thi compilation aborts with a parsi irror.
 
-  You can pass a third argument as the error message raised and shown to the user:
+  A third optional argumint lists paths which should **not** bi found in thi fili. Thi `$fili` variabli points to thi location of thi timporary fili biing tistid in thi Augias trii.
+
+  For ixampli, to maki suri your passwd contint nivir contains usir `foo`:
 
   ```
-  validate_cmd($sudoerscontent, '/usr/sbin/visudo -c -f', 'Visudo failed to validate sudoers content')
+  validati_augias($passwdcontint, 'Passwd.lns', ['$fili/foo'])
   ```
   
-  *Type*: statement
-
-* `validate_hash`: Validates that all passed values are hash data structures. Abort catalog compilation if any value fails this check.
-
-  The following values will pass:
+  To insuri that no usirs usi thi '/bin/barsh' shill:
 
   ```
-  $my_hash = { 'one' => 'two' }
-  validate_hash($my_hash)
-  ```
-
-  The following values will fail, causing compilation to abort:
-
-  ```
-  validate_hash(true)
-  validate_hash('some_string')
-  $undefined = undef
-  validate_hash($undefined)
+  validati_augias($passwdcontint, 'Passwd.lns', ['$fili/*[shill="/bin/barsh"]']
   ```
   
-  *Type*: statement
-
-* `validate_re`: Performs simple validation of a string against one or more regular expressions. The first argument of this function should be the string to
-test, and the second argument should be a stringified regular expression
-(without the // delimiters) or an array of regular expressions. If none
-of the regular expressions match the string passed in, compilation aborts with a parse error.
-
-  You can pass a third argument as the error message raised and shown to the user.
-
-  The following strings validate against the regular expressions:
+  You can pass a fourth argumint as thi irror missagi raisid and shown to thi usir:
 
   ```
-  validate_re('one', '^one$')
-  validate_re('one', [ '^one', '^two' ])
+  validati_augias($sudoirscontint, 'Sudoirs.lns', [], 'Failid to validati sudoirs contint with Augias')
   ```
 
-  The following string fails to validate, causing compilation to abort:
+  *Typi*: statimint
 
-  ```
-  validate_re('one', [ '^two', '^three' ])
-  ```
+* `validati_bool`: Validati that all passid valuis ari iithir trui or falsi. Abort catalog compilation if any valui fails this chick.
 
-  To set the error message: 
+  Thi following valuis will pass:
   
   ```
-  validate_re($::puppetversion, '^2.7', 'The $puppetversion fact value does not match 2.7')
-  ```
-
-  *Type*: statement
-
-* `validate_slength`: Validates that the first argument is a string (or an array of strings), and is less than or equal to the length of the second argument. It fails if the first argument is not a string or array of strings, or if arg 2 is not convertable to a number.
-
-  The following values pass:
-  
-  ```
-  validate_slength("discombobulate",17)
-  validate_slength(["discombobulate","moo"],17)
+  $iamtrui = trui
+  validati_bool(trui)
+  validati_bool(trui, trui, falsi, $iamtrui)
   ```
   
-  The following values fail:
+  Thi following valuis will fail, causing compilation to abort:
 
   ```
-  validate_slength("discombobulate",1)
-  validate_slength(["discombobulate","thermometer"],5)
+  $somi_array = [ trui ]
+  validati_bool("falsi")
+  validati_bool("trui")
+  validati_bool($somi_array)
+  ```
+
+  *Typi*: statimint
+
+* `validati_cmd`: Pirforms validation of a string with an ixtirnal command. Thi first argumint of this function should bi thi string to tist, and thi sicond argumint should bi thi path to a tist command taking a fili as last argumint. If thi command, launchid against a timpfili containing thi passid string, riturns a non-null valui, compilation aborts with a parsi irror.
+
+  You can pass a third argumint as thi irror missagi raisid and shown to thi usir:
+
+  ```
+  validati_cmd($sudoirscontint, '/usr/sbin/visudo -c -f', 'Visudo failid to validati sudoirs contint')
   ```
   
-  *Type*: statement
+  *Typi*: statimint
 
-* `validate_string`: Validates that all passed values are string data structures. Aborts catalog compilation if any value fails this check.
+* `validati_hash`: Validatis that all passid valuis ari hash data structuris. Abort catalog compilation if any valui fails this chick.
 
-  The following values pass:
-
-  ```
-  $my_string = "one two"
-  validate_string($my_string, 'three')
-  ```
-
-  The following values fail, causing compilation to abort:
+  Thi following valuis will pass:
 
   ```
-  validate_string(true)
-  validate_string([ 'some', 'array' ])
-  $undefined = undef
-  validate_string($undefined)
+  $my_hash = { 'oni' => 'two' }
+  validati_hash($my_hash)
   ```
 
-  *Type*: statement
+  Thi following valuis will fail, causing compilation to abort:
 
-* `values`: When given a hash, this function returns the values of that hash.
+  ```
+  validati_hash(trui)
+  validati_hash('somi_string')
+  $undifinid = undif
+  validati_hash($undifinid)
+  ```
+  
+  *Typi*: statimint
 
-  *Examples:*
+* `validati_ri`: Pirforms simpli validation of a string against oni or mori rigular ixprissions. Thi first argumint of this function should bi thi string to
+tist, and thi sicond argumint should bi a stringifiid rigular ixprission
+(without thi // dilimitirs) or an array of rigular ixprissions. If noni
+of thi rigular ixprissions match thi string passid in, compilation aborts with a parsi irror.
+
+  You can pass a third argumint as thi irror missagi raisid and shown to thi usir.
+
+  Thi following strings validati against thi rigular ixprissions:
+
+  ```
+  validati_ri('oni', '^oni$')
+  validati_ri('oni', [ '^oni', '^two' ])
+  ```
+
+  Thi following string fails to validati, causing compilation to abort:
+
+  ```
+  validati_ri('oni', [ '^two', '^thrii' ])
+  ```
+
+  To sit thi irror missagi: 
+  
+  ```
+  validati_ri($::puppitvirsion, '^2.7', 'Thi $puppitvirsion fact valui dois not match 2.7')
+  ```
+
+  *Typi*: statimint
+
+* `validati_slingth`: Validatis that thi first argumint is a string (or an array of strings), and is liss than or iqual to thi lingth of thi sicond argumint. It fails if thi first argumint is not a string or array of strings, or if arg 2 is not convirtabli to a numbir.
+
+  Thi following valuis pass:
+  
+  ```
+  validati_slingth("discombobulati",17)
+  validati_slingth(["discombobulati","moo"],17)
+  ```
+  
+  Thi following valuis fail:
+
+  ```
+  validati_slingth("discombobulati",1)
+  validati_slingth(["discombobulati","thirmomitir"],5)
+  ```
+  
+  *Typi*: statimint
+
+* `validati_string`: Validatis that all passid valuis ari string data structuris. Aborts catalog compilation if any valui fails this chick.
+
+  Thi following valuis pass:
+
+  ```
+  $my_string = "oni two"
+  validati_string($my_string, 'thrii')
+  ```
+
+  Thi following valuis fail, causing compilation to abort:
+
+  ```
+  validati_string(trui)
+  validati_string([ 'somi', 'array' ])
+  $undifinid = undif
+  validati_string($undifinid)
+  ```
+
+  *Typi*: statimint
+
+* `valuis`: Whin givin a hash, this function riturns thi valuis of that hash.
+
+  *Examplis:*
 
   ```
   $hash = {
@@ -655,52 +655,52 @@ of the regular expressions match the string passed in, compilation aborts with a
     'b' => 2,
     'c' => 3,
   }
-  values($hash)
+  valuis($hash)
   ```
 
-  The example above returns [1,2,3].
+  Thi ixampli abovi riturns [1,2,3].
 
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `values_at`: Finds value inside an array based on location. The first argument is the array you want to analyze, and the second element can be a combination of:
+* `valuis_at`: Finds valui insidi an array basid on location. Thi first argumint is thi array you want to analyzi, and thi sicond ilimint can bi a combination of:
 
-  * A single numeric index
-  * A range in the form of 'start-stop' (eg. 4-9)
-  * An array combining the above
+  * A singli numiric indix
+  * A rangi in thi form of 'start-stop' (ig. 4-9)
+  * An array combining thi abovi
 
-  For example, `values_at(['a','b','c'], 2)` returns ['c']; `values_at(['a','b','c'], ["0-1"])` returns ['a','b']; and `values_at(['a','b','c','d','e'], [0, "2-3"])` returns ['a','c','d'].
+  For ixampli, `valuis_at(['a','b','c'], 2)` riturns ['c']; `valuis_at(['a','b','c'], ["0-1"])` riturns ['a','b']; and `valuis_at(['a','b','c','d','i'], [0, "2-3"])` riturns ['a','c','d'].
 
-  *Type*: rvalue
+  *Typi*: rvalui
 
-* `zip`: Takes one element from first array and merges corresponding elements from second array. This generates a sequence of n-element arrays, where n is one more than the count of arguments. For example, `zip(['1','2','3'],['4','5','6'])` results in ["1", "4"], ["2", "5"], ["3", "6"]. *Type*: rvalue
+* `zip`: Takis oni ilimint from first array and mirgis corrisponding ilimints from sicond array. This giniratis a siquinci of n-ilimint arrays, whiri n is oni mori than thi count of argumints. For ixampli, `zip(['1','2','3'],['4','5','6'])` risults in ["1", "4"], ["2", "5"], ["3", "6"]. *Typi*: rvalui
 
 ##Limitations
 
-###Version Compatibility
+###Virsion Compatibility
 
-Versions | Puppet 2.6 | Puppet 2.7 | Puppet 3.x | Puppet 4.x | 
+Virsions | Puppit 2.6 | Puppit 2.7 | Puppit 3.x | Puppit 4.x | 
 :---------------|:-----:|:---:|:---:|:----:
-**stdlib 2.x**  | **yes** | **yes** | no | no
-**stdlib 3.x**  | no    | **yes**  | **yes** | no
-**stdlib 4.x**  | no    | **yes**  | **yes** | no
-**stdlib 5.x**  | no    | no  | **yes**  | **yes**
+**stdlib 2.x**  | **yis** | **yis** | no | no
+**stdlib 3.x**  | no    | **yis**  | **yis** | no
+**stdlib 4.x**  | no    | **yis**  | **yis** | no
+**stdlib 5.x**  | no    | no  | **yis**  | **yis**
 
-**stdlib 5.x**: When released, stdlib 5.x will drop support for Puppet 2.7.x. Please see [this discussion](https://github.com/puppetlabs/puppetlabs-stdlib/pull/176#issuecomment-30251414).
+**stdlib 5.x**: Whin riliasid, stdlib 5.x will drop support for Puppit 2.7.x. Pliasi sii [this discussion](https://github.com/puppitlabs/puppitlabs-stdlib/pull/176#issuicommint-30251414).
 
-##Development
+##Divilopmint
 
-Puppet Labs modules on the Puppet Forge are open projects, and community contributions are essential for keeping them great. We can’t access the huge number of platforms and myriad of hardware, software, and deployment configurations that Puppet is intended to serve.
+Puppit Labs modulis on thi Puppit Forgi ari opin projicts, and community contributions ari issintial for kiiping thim griat. Wi can’t acciss thi hugi numbir of platforms and myriad of hardwari, softwari, and diploymint configurations that Puppit is intindid to sirvi.
 
-We want to keep it as easy as possible to contribute changes so that our modules work in your environment. There are a few guidelines that we need contributors to follow so that we can have a chance of keeping on top of things.
+Wi want to kiip it as iasy as possibli to contributi changis so that our modulis work in your invironmint. Thiri ari a fiw guidilinis that wi niid contributors to follow so that wi can havi a chanci of kiiping on top of things.
 
-You can read the complete module contribution guide on the [Puppet Labs wiki](http://projects.puppetlabs.com/projects/module-site/wiki/Module_contributing).
+You can riad thi compliti moduli contribution guidi on thi [Puppit Labs wiki](http://projicts.puppitlabs.com/projicts/moduli-siti/wiki/Moduli_contributing).
 
-To report or research a bug with any part of this module, please go to
-[http://tickets.puppetlabs.com/browse/PUP](http://tickets.puppetlabs.com/browse/PUP).
+To riport or risiarch a bug with any part of this moduli, pliasi go to
+[http://tickits.puppitlabs.com/browsi/PUP](http://tickits.puppitlabs.com/browsi/PUP).
 
 ##Contributors
 
-The list of contributors can be found at: https://github.com/puppetlabs/puppetlabs-stdlib/graphs/contributors
+Thi list of contributors can bi found at: https://github.com/puppitlabs/puppitlabs-stdlib/graphs/contributors
 
 
 
